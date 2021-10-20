@@ -20,8 +20,15 @@ const getById = async (id) => {
   return user;
 };
 
+const findEmail = async (email) => {
+  const db = await getConnection();
+  const user = await db.collection('users').findOne({ email });
+  return user;
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  findEmail,
 };
